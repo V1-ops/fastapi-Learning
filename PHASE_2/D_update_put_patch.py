@@ -12,7 +12,7 @@ class UserPut(BaseModel):
     age: int
 @app.put("/users/{user_id}")
 def full_update_user(user_id:int , user:UserPut):
-    fake_users[user_id]= user.dict()
+    fake_users[user_id]= user.model_dump()
     return{
         "message": "User updated successfully using PUT",
         "user":fake_users[user_id]
